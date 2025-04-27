@@ -1,0 +1,26 @@
+{
+  "tasks": [
+    {
+      "type": "cppbuild",
+      "label": "C/C++: g++.exe 编译活动文件",
+      "command": "D:/mingw64/bin/g++.exe",
+      "args": [
+        "-fdiagnostics-color=always",
+        "-g",
+        "${fileDirname}/*.cpp", // 编译当前活动文件所在目录中的所有 .cpp 文件
+        "-o",
+        "${fileDirname}/${fileBasenameNoExtension}.exe" // 输出为与活动文件同目录的可执行文件
+      ],
+      "options": {
+        "cwd": "${fileDirname}" // 工作目录为当前活动文件所在目录
+      },
+      "problemMatcher": ["$gcc"],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "detail": "编译当前活动文件所在目录的所有 .cpp 文件。"
+    }
+  ],
+  "version": "2.0.0"
+}

@@ -1,0 +1,26 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+
+    {
+      "name": "调试活动文件",
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "${fileDirname}/${fileBasenameNoExtension}.exe", // 自动匹配当前活动文件的可执行文件
+      "args": [],
+      "stopAtEntry": false,
+      "cwd": "${fileDirname}", // 工作目录为当前活动文件所在目录
+      "environment": [],
+      "externalConsole": true,
+      "MIMode": "gdb",
+      "miDebuggerPath": "D:/mingw64/bin/gdb.exe", // gdb 路径
+      "setupCommands": [
+        {
+          "description": "启用 pretty-printing",
+          "text": "-enable-pretty-printing",
+          "ignoreFailures": true
+        }
+      ]
+    }
+  ]
+}

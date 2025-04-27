@@ -1,0 +1,222 @@
+{
+    // 主题
+    "workbench.colorTheme": "GitHub Dark",
+
+    // 关于缩进 tab 空格
+    // 检测第一个tab后面就tab 设置为false禁止这种智能判断
+    "editor.detectIndentation": false,
+    "editor.tabSize": 4,
+    "editor.insertSpaces": true,    // 按 Tab 键时插入空格
+    "editor.renderControlCharacters": true, //制表符显示->
+    "editor.renderWhitespace": "selection", // 显示空格 tab 设置selection或者all
+
+    // 字体设置
+    "editor.fontFamily": "JetBrains Mono,HONOR Sans Cn,Consolas,monospace",
+    "terminal.integrated.fontFamily": "JetBrains Mono,monospace",
+    "terminal.integrated.fontWeight": "normal",
+    "editor.fontSize": 16,
+    "terminal.integrated.fontSize": 14,
+    "editor.fontLigatures": false,
+    "editor.fontVariations": false,
+    // 注释字体设置为斜体
+    "editor.tokenColorCustomizations": {
+        "textMateRules": [{
+            "scope": "comment",
+            "settings": {
+            "fontStyle": "italic"
+        }}],
+    },
+
+    // 换行与换行竖线 设置80字符
+    "editor.rulers": [80],
+    "editor.wordWrap": "wordWrapColumn",
+    "editor.wordWrapColumn": 80,
+
+    // 文件编码与自动保存
+    "files.autoGuessEncoding": true,
+    "files.autoSave": "afterDelay",
+    "files.autoSaveDelay": 1000,
+
+    // 格式化相关
+    "editor.defaultFormatter": "ms-vscode.cpptools",
+    "editor.formatOnSave": true,
+    "editor.formatOnSaveMode": "file",
+    "editor.formatOnPaste": true,
+    "files.trimTrailingWhitespace": true,
+
+    // 右边小地图
+    "editor.minimap.enabled": true,
+
+    // 语言相关的配置
+    "C_Cpp.default.cppStandard": "c++23",
+    "C_Cpp.default.cStandard": "c23",
+    "C_Cpp.formatting": "clangFormat",
+    "[c]": {
+        "editor.defaultFormatter": "ms-vscode.cpptools"
+    },
+    "[python]": {
+        "editor.formatOnType": true
+    },
+    "python.defaultInterpreterPath": "C:\\miniconda3\\python.exe",
+
+    // 插件配置 code-runner
+    "code-runner.executorMap": {
+        "c": "cd $dir && gcc -std=c17 -g -Wall $fileName -o D:\\TMP\\BUILD\\$fileNameWithoutExt.exe && D:\\TMP\\BUILD\\$fileNameWithoutExt.exe",
+        "cpp": "cd $dir && g++ -std=c++17 -g -Wall $fileName -o D:\\TMP\\BUILD\\$fileNameWithoutExt.exe && D:\\TMP\\BUILD\\$fileNameWithoutExt.exe"
+    },
+    "code-runner.saveFileBeforeRun": true,
+    "code-runner.fileDirectoryAsCwd": true,
+    "code-runner.saveAllFilesBeforeRun": true,
+    "code-runner.runInTerminal": true,
+    "code-runner.clearPreviousOutput": true,
+    "debug.terminal.clearBeforeReusing": true,
+
+    // 注释插件 doxygen 配置
+    "doxdocgen.file.copyrightTag": [
+      "@copyright Copyright (c) {year}"
+    ],
+    "doxdocgen.file.fileTemplate": "@file {name}",
+    "doxdocgen.file.versionTag": "@version 1.0",
+    "doxdocgen.generic.authorEmail": "yianny@163.com",
+    "doxdocgen.generic.authorName": "yianny",
+    "doxdocgen.generic.authorTag": "@author {author} ({email})",
+    "doxdocgen.generic.order": [
+        "brief",
+        "tparam",
+        "param",
+        "return"
+    ],
+    "doxdocgen.generic.paramTemplate": "@param {param}",
+    "doxdocgen.generic.returnTemplate": "@return {type}",
+    "doxdocgen.generic.splitCasingSmartText": true,
+    "doxdocgen.file.fileOrder": [
+        "file",
+        "brief",
+        "version",
+        "date",
+        "author",
+        "copyright",
+    ],
+
+    // 解决windows下 部分场景下的终端乱码
+    "terminal.integrated.profiles.windows": {
+        "PowerShell -NoProfile": {
+            "source": "PowerShell",
+            "args": ["-NoProfile",
+                "-NoExit",
+                "-Command",
+                "chcp 65001"
+            ]
+        }
+    },
+    "terminal.integrated.defaultProfile.windows": "PowerShell -NoProfile",
+
+    // 当前行的高亮设置
+    // "workbench.colorCustomizations": {
+    //     "editor.lineHighlightBackground": "#00000000",
+    //     "editor.lineHighlightBorder": "#00000000"
+    // },
+
+    // 其他
+    "files.associations": {
+        "array": "cpp",
+        "atomic": "cpp",
+        "*.tcc": "cpp",
+        "bitset": "cpp",
+        "cctype": "cpp",
+        "cfenv": "cpp",
+        "charconv": "cpp",
+        "chrono": "cpp",
+        "cinttypes": "cpp",
+        "clocale": "cpp",
+        "cmath": "cpp",
+        "codecvt": "cpp",
+        "complex": "cpp",
+        "condition_variable": "cpp",
+        "csetjmp": "cpp",
+        "csignal": "cpp",
+        "cstdarg": "cpp",
+        "cstddef": "cpp",
+        "cstdint": "cpp",
+        "cstdio": "cpp",
+        "cstdlib": "cpp",
+        "cstring": "cpp",
+        "ctime": "cpp",
+        "cuchar": "cpp",
+        "cwchar": "cpp",
+        "cwctype": "cpp",
+        "deque": "cpp",
+        "forward_list": "cpp",
+        "list": "cpp",
+        "unordered_map": "cpp",
+        "unordered_set": "cpp",
+        "vector": "cpp",
+        "exception": "cpp",
+        "algorithm": "cpp",
+        "functional": "cpp",
+        "iterator": "cpp",
+        "map": "cpp",
+        "memory": "cpp",
+        "memory_resource": "cpp",
+        "numeric": "cpp",
+        "optional": "cpp",
+        "random": "cpp",
+        "ratio": "cpp",
+        "regex": "cpp",
+        "set": "cpp",
+        "string": "cpp",
+        "string_view": "cpp",
+        "system_error": "cpp",
+        "tuple": "cpp",
+        "type_traits": "cpp",
+        "utility": "cpp",
+        "fstream": "cpp",
+        "future": "cpp",
+        "initializer_list": "cpp",
+        "iomanip": "cpp",
+        "iosfwd": "cpp",
+        "iostream": "cpp",
+        "istream": "cpp",
+        "limits": "cpp",
+        "mutex": "cpp",
+        "new": "cpp",
+        "ostream": "cpp",
+        "scoped_allocator": "cpp",
+        "shared_mutex": "cpp",
+        "sstream": "cpp",
+        "stdexcept": "cpp",
+        "streambuf": "cpp",
+        "thread": "cpp",
+        "typeindex": "cpp",
+        "typeinfo": "cpp",
+        "valarray": "cpp"
+    },
+    "files.exclude": {
+        "**/*.exe": true,
+        "**/build": true,
+        "**/.git": true,
+        "**/node_modules": true,
+        "**/.DS_Store": true,
+        "**/dist": true,
+    },
+    "C_Cpp.files.exclude": {
+        "**/.vscode": true,
+    },
+
+    "editor.accessibilitySupport": "off",
+    "extensions.ignoreRecommendations": true,
+    "workbench.startupEditor": "none",
+    "explorer.confirmDelete": false,
+    "output.smartScroll.enabled": false,
+    "Codegeex.Comment.LanguagePreference": "中文",
+    "Codegeex.Chat.LanguagePreference": "中文",
+    "Codegeex.SidebarUI.LanguagePreference": "中文",
+    "Codegeex.Explanation.LanguagePreference": "zh-CN",
+    "security.workspace.trust.untrustedFiles": "open",
+    "security.workspace.trust.startupPrompt": "never",
+    "Codegeex.Privacy": true,
+    "[jsonc]": {
+        "editor.defaultFormatter": "vscode.json-language-features"
+    },
+
+}
