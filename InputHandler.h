@@ -3,12 +3,21 @@
 
 #include <vector>
 #include "Board.h"
-#include "SwapAlgo.h"
+#include <string>
+
+struct SwapStep
+{
+    std::string type;
+    int a, b;
+};
 
 class InputHandler
 {
 public:
-    static void handleMove(Board &board, vector<SwapStep> &history);
+    // 交互式操作，history用于记录操作历史
+    static void handleMove(Board &board, std::vector<SwapStep> &history);
+    // 命令行模式解析与执行
+    static bool handleCommand(Board &board, const std::string &input, std::string &message);
 };
 
 #endif

@@ -1,27 +1,52 @@
 #include "Utility.h"
-#include <windows.h> // for Sleep()
+#include <iostream>
+#include <string>
+#ifdef _WIN32
+#include <windows.h>
+#else
+#include <unistd.h>
+#endif
+using namespace std;
 
-int Utility::randomInt(int min, int max)
+namespace Utility
 {
-    return min + rand() % (max - min + 1);
-}
+    int randomInt(int min, int max)
+    {
+        static bool seeded = false;
+        if (!seeded)
+        {
+            srand((unsigned int)time(0));
+            seeded = true;
+        }
+        return min + rand() % (max - min + 1);
+    }
 
-void Utility::sleep(int milliseconds)
-{
-    Sleep(milliseconds);
-}
+    void sleep(int milliseconds)
+    {
+#ifdef _WIN32
+        Sleep(milliseconds);
+#else
+        usleep(milliseconds * 1000);
+#endif
+    }
 
-string Utility::getInputString()
-{
-    string str;
-    getline(cin, str);
-    return str;
-}
+    string getInputString()
+    {
+        string s;
+        getline(cin, s);
+        return s;
+    }
 
-int Utility::getInputInt()
-{
-    int num;
-    cin >> num;
-    cin.ignore(); // 清除缓冲区
-    return num;
+    int getInputInt()
+    {
+        int x;
+        while (!(cin >> x))
+        {
+            cin.clear();
+            cin.ignore(1024, '\n');
+            cout << "输入无效，请输入整数：";
+        }
+        cin.ignore(1024, '\n');
+        return x;
+    }
 }

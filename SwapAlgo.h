@@ -3,12 +3,7 @@
 
 #include <vector>
 #include "Board.h"
-
-struct SwapStep
-{
-    string type;        // "row", "col", "cross"
-    int param1, param2; // 具体参数
-};
+#include "InputHandler.h" // 只引用SwapStep结构体
 
 class SwapAlgo
 {
@@ -23,7 +18,12 @@ public:
     static void swapCross(Board &board, int centerRow, int centerCol);
 
     // 生成随机交换步骤
-    static vector<SwapStep> generateRandomMoves(Board &board, int steps);
+    static std::vector<SwapStep> generateRandomMoves(Board &board, int steps);
+
+    // 封装三种交换操作，返回操作是否成功
+    static bool swapRows(Board &board, int row1, int row2);
+    static bool swapCols(Board &board, int col1, int col2);
+    static bool crossSwap(Board &board, int r1, int c1, int r2, int c2);
 };
 
 #endif

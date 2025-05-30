@@ -8,7 +8,9 @@ void SwapAlgo::swapAdjacentRows(Board &board, int row)
         return;
     for (int c = 0; c < board.getSize(); c++)
     {
-        swap(board.get(row, c), board.get(row + 1, c));
+        int temp = board.get(row, c);
+        board.set(row, c, board.get(row + 1, c));
+        board.set(row + 1, c, temp);
     }
 }
 
@@ -19,7 +21,9 @@ void SwapAlgo::swapAdjacentCols(Board &board, int col)
         return;
     for (int r = 0; r < board.getSize(); r++)
     {
-        swap(board.get(r, col), board.get(r, col + 1));
+        int temp = board.get(r, col);
+        board.set(r, col, board.get(r, col + 1));
+        board.set(r, col + 1, temp);
     }
 }
 
@@ -40,9 +44,9 @@ void SwapAlgo::swapCross(Board &board, int r, int c)
 }
 
 // 生成随机交换步骤（用于初始化打乱）
-vector<SwapStep> SwapAlgo::generateRandomMoves(Board &board, int steps)
+std::vector<SwapStep> SwapAlgo::generateRandomMoves(Board &board, int steps)
 {
-    vector<SwapStep> moves;
+    std::vector<SwapStep> moves;
     int n = board.getSize();
 
     for (int i = 0; i < steps; i++)
@@ -53,22 +57,42 @@ vector<SwapStep> SwapAlgo::generateRandomMoves(Board &board, int steps)
         if (type == 0)
         { // 交换行
             step.type = "row";
-            step.param1 = Utility::randomInt(0, n - 2);
+            step.a = Utility::randomInt(0, n - 2);
+            step.b = step.a + 1;
         }
         else if (type == 1)
         { // 交换列
             step.type = "col";
-            step.param1 = Utility::randomInt(0, n - 2);
+            step.a = Utility::randomInt(0, n - 2);
+            step.b = step.a + 1;
         }
         else
         { // 交换十字
             step.type = "cross";
-            step.param1 = Utility::randomInt(0, n - 3);
-            step.param2 = Utility::randomInt(0, n - 3);
+            step.a = Utility::randomInt(0, n - 3);
+            step.b = Utility::randomInt(0, n - 3);
         }
 
         moves.push_back(step);
     }
 
     return moves;
+}
+
+// 行交换
+bool SwapAlgo::swapRows(Board &board, int row1, int row2)
+{
+    return board.swapRows(row1, row2);
+}
+
+// 列交换
+bool SwapAlgo::swapCols(Board &board, int col1, int col2)
+{
+    return board.swapCols(col1, col2);
+}
+
+// 十字交换
+bool SwapAlgo::crossSwap(Board &board, int r1, int c1, int r2, int c2)
+{
+    return board.crossSwap(r1, c1, r2, c2);
 }
