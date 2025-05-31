@@ -1,15 +1,13 @@
 {
     // 主题
     "workbench.colorTheme": "GitHub Dark",
-
     // 关于缩进 tab 空格
     // 检测第一个tab后面就tab 设置为false禁止这种智能判断
     "editor.detectIndentation": false,
     "editor.tabSize": 4,
-    "editor.insertSpaces": true,    // 按 Tab 键时插入空格
+    "editor.insertSpaces": true, // 按 Tab 键时插入空格
     "editor.renderControlCharacters": true, //制表符显示->
     "editor.renderWhitespace": "selection", // 显示空格 tab 设置selection或者all
-
     // 字体设置
     "editor.fontFamily": "JetBrains Mono,HONOR Sans Cn,Consolas,monospace",
     "terminal.integrated.fontFamily": "JetBrains Mono,monospace",
@@ -20,33 +18,33 @@
     "editor.fontVariations": false,
     // 注释字体设置为斜体
     "editor.tokenColorCustomizations": {
-        "textMateRules": [{
-            "scope": "comment",
-            "settings": {
-            "fontStyle": "italic"
-        }}],
+        "textMateRules": [
+            {
+                "scope": "comment",
+                "settings": {
+                    "fontStyle": "italic"
+                }
+            }
+        ],
     },
-
     // 换行与换行竖线 设置80字符
-    "editor.rulers": [80],
+    "editor.rulers": [
+        80
+    ],
     "editor.wordWrap": "wordWrapColumn",
     "editor.wordWrapColumn": 80,
-
     // 文件编码与自动保存
     "files.autoGuessEncoding": true,
     "files.autoSave": "afterDelay",
     "files.autoSaveDelay": 1000,
-
     // 格式化相关
     "editor.defaultFormatter": "ms-vscode.cpptools",
     "editor.formatOnSave": true,
     "editor.formatOnSaveMode": "file",
     "editor.formatOnPaste": true,
     "files.trimTrailingWhitespace": true,
-
     // 右边小地图
     "editor.minimap.enabled": true,
-
     // 语言相关的配置
     "C_Cpp.default.cppStandard": "c++23",
     "C_Cpp.default.cStandard": "c23",
@@ -58,7 +56,6 @@
         "editor.formatOnType": true
     },
     "python.defaultInterpreterPath": "C:\\miniconda3\\python.exe",
-
     // 插件配置 code-runner
     "code-runner.executorMap": {
         "c": "cd $dir && gcc -std=c17 -g -Wall $fileName -o D:\\TMP\\BUILD\\$fileNameWithoutExt.exe && D:\\TMP\\BUILD\\$fileNameWithoutExt.exe",
@@ -70,10 +67,9 @@
     "code-runner.runInTerminal": true,
     "code-runner.clearPreviousOutput": true,
     "debug.terminal.clearBeforeReusing": true,
-
     // 注释插件 doxygen 配置
     "doxdocgen.file.copyrightTag": [
-      "@copyright Copyright (c) {year}"
+        "@copyright Copyright (c) {year}"
     ],
     "doxdocgen.file.fileTemplate": "@file {name}",
     "doxdocgen.file.versionTag": "@version 1.0",
@@ -97,12 +93,12 @@
         "author",
         "copyright",
     ],
-
     // 解决windows下 部分场景下的终端乱码
     "terminal.integrated.profiles.windows": {
         "PowerShell -NoProfile": {
             "source": "PowerShell",
-            "args": ["-NoProfile",
+            "args": [
+                "-NoProfile",
                 "-NoExit",
                 "-Command",
                 "chcp 65001"
@@ -110,13 +106,11 @@
         }
     },
     "terminal.integrated.defaultProfile.windows": "PowerShell -NoProfile",
-
     // 当前行的高亮设置
     // "workbench.colorCustomizations": {
     //     "editor.lineHighlightBackground": "#00000000",
     //     "editor.lineHighlightBorder": "#00000000"
     // },
-
     // 其他
     "files.associations": {
         "array": "cpp",
@@ -189,7 +183,16 @@
         "thread": "cpp",
         "typeindex": "cpp",
         "typeinfo": "cpp",
-        "valarray": "cpp"
+        "valarray": "cpp",
+        "bit": "cpp",
+        "compare": "cpp",
+        "concepts": "cpp",
+        "format": "cpp",
+        "numbers": "cpp",
+        "ranges": "cpp",
+        "span": "cpp",
+        "text_encoding": "cpp",
+        "variant": "cpp"
     },
     "files.exclude": {
         "**/*.exe": true,
@@ -202,7 +205,6 @@
     "C_Cpp.files.exclude": {
         "**/.vscode": true,
     },
-
     "editor.accessibilitySupport": "off",
     "extensions.ignoreRecommendations": true,
     "workbench.startupEditor": "none",
@@ -218,5 +220,4 @@
     "[jsonc]": {
         "editor.defaultFormatter": "vscode.json-language-features"
     },
-
 }

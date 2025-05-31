@@ -9,7 +9,15 @@ Board::Board(int size) : n(size), grid(n * n)
 {
     for (int i = 0; i < n * n; i++)
     {
-        grid[i] = i + 1;
+        grid[i] = '1' + (i % 9); // 默认填数字字符，练习模式会重置
+    }
+}
+
+void Board::setPoem(const std::string &poem)
+{
+    for (int i = 0; i < n * n && i < (int)poem.size(); ++i)
+    {
+        grid[i] = poem[i];
     }
 }
 
@@ -24,7 +32,7 @@ void Board::print() const
     {
         for (int j = 0; j < n; j++)
         {
-            printf("%3d", grid[i * n + j]);
+            cout << grid[i * n + j] << ' ';
         }
         cout << endl;
     }
@@ -35,18 +43,18 @@ bool Board::isSolved() const
 {
     for (int i = 0; i < n * n; i++)
     {
-        if (grid[i] != i + 1)
+        if (grid[i] != '1' + (i % 9)) // 仅练习模式有效，比赛模式需自定义判断
             return false;
     }
     return true;
 }
 
-int Board::get(int r, int c) const
+char Board::get(int r, int c) const
 {
     return grid[r * n + c];
 }
 
-void Board::set(int r, int c, int val)
+void Board::set(int r, int c, char val)
 {
     grid[r * n + c] = val;
 }
